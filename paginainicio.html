@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Página inicio</title>
+        <link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header>
+            <h1>INMOBILIARIA MOBILIARIA</h1>
+            <!-- Navegador -->
+			<nav class="navbar">
+				<button onclick="goInit()">Inicio</button>
+				<button onclick="loadPage('situacion.html')">Situación</button>
+				<button onclick="loadPage('altacliente.html')">
+					Alta Cliente
+				</button>
+				<button onclick="loadPage('alquileryventa.html')">Alquiler</button>
+				<button onclick="loadPage('alquileryventa.html')">Venta</button>
+				<button onclick="loadPage('avisolegal.html')">
+					Aviso Legal
+				</button>
+			</nav>
+		</header>
+
+		<!-- Contenido -->
+		<div
+			class="content"
+			id="content"
+		>
+			<h1>Bienvenido a Inmobiliaria Mobiliaria</h1>
+			<p>
+				Inmobiliaria Mobiliaria se enorgullece de ofrecer 15 años de
+				experiencia inigualable en el sector inmobiliario. Durante estas
+				dos décadas, hemos establecido una sólida reputación como una
+				empresa confiable y profesional en el mercado. Nuestro equipo
+				altamente capacitado y comprometido ha brindado servicios de
+				calidad y ha ayudado a innumerables clientes a encontrar el
+				hogar de sus sueños, invertir en propiedades o alquilar espacios
+				comerciales.
+			</p>
+			<p>
+				Nuestra amplia experiencia nos ha permitido desarrollar un
+				profundo conocimiento del mercado local y una red extensa de
+				contactos en la industria. Estamos comprometidos en brindar
+				asesoramiento experto y soluciones personalizadas a las
+				necesidades individuales de cada cliente. Ya sea que estés
+				buscando una casa familiar, una inversión rentable o una
+				ubicación comercial estratégica, estamos aquí para guiarte en
+				cada paso del proceso.
+			</p>
+			<p>
+				Nos distinguimos por nuestro enfoque centrado en el cliente, la
+				transparencia en nuestras transacciones y la integridad en
+				nuestro trabajo. Valoramos las relaciones duraderas y nos
+				enorgullece la satisfacción de nuestros clientes. Si estás
+				buscando una experiencia inmobiliaria sólida y confiable,
+				Inmobiliaria Mobiliaria es la elección correcta. Permítenos
+				utilizar nuestra experiencia y conocimientos para ayudarte a
+				alcanzar tus metas inmobiliarias con éxito.
+			</p>
+        </div>
+	</body>
+    <script src="alquileryventa.js"></script>
+    <script>
+
+        const iniciocontent = document.getElementById('content').innerHTML
+
+		function loadPage(page) {
+			fetch(page)
+				.then((response) => response.text())
+				.then((data) => {
+					document.getElementById("content").innerHTML = data
+
+                    if(page === 'alquileryventa.html'){
+                        chargeGallery()
+                    }
+                })                    
+				.catch((error) => {
+					console.error("Error:", error)
+				})
+		}
+
+		function goInit() {
+			document.getElementById('content').innerHTML = iniciocontent
+		}
+	</script>
+</html>

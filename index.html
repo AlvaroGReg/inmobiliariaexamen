@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Index galería</title>
+		<style>
+			.carousel {
+				position: relative;
+				width: 400px;
+				height: 300px;
+				overflow: hidden;
+				margin: 10px auto;
+			}
+
+			.carousel img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			header {
+				width: 100%;
+				display: flex;
+				justify-content: center;
+			}
+			
+			body{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			a{
+				font-size: 2em;
+				text-decoration: none;
+				color: blue;
+				text-transform: uppercase;
+			}
+
+			a:visited{
+				color: blue;
+			}
+			a:hover{
+				color: rgb(0, 161, 153);
+			}
+		</style>
+	</head>
+	<body>
+		<header><h1>INMOBILIARIA MOBILIARIA</h1></header>
+		<div class="carousel">
+			<img
+				id="image"
+				src="https://img3.idealista.com/blur/WEB_DETAIL_TOP-L-L/0/id.pro.es.image.master/01/97/26/1081060730.jpg"
+				alt="Imagen"
+			/>
+		</div>
+
+		<a href="paginainicio.html">Visita nuestra página</a>
+
+		<script>
+			const images = [
+				"https://media.yaencontre.com/img/photo/w380/47297/47297-48785157-1212341693.jpg",
+				"https://images.adsttc.com/media/images/5ec7/e38f/b357/6579/0d00/00ce/newsletter/bionyl-1.jpg?1590158218",
+				"https://images-re-inmofactory.milanuncios.com/images/inmofactory/documents/1/136630/34207987/592165131.jpg?rule=hw396_70",
+				"https://www.realia.es/uploads/sizes/blog/blog/2020/pisos-en-venta-en-madrid.jpg",
+				"https://hips.hearstapps.com/hmg-prod/images/piso-obra-nueva-laura-yerpes3-1646756923.jpg",
+				"https://img3.idealista.com/blur/WEB_DETAIL_TOP-L-L/0/id.pro.es.image.master/01/97/26/1081060730.jpg",
+			]
+			var currentIndex = 0
+			const imageElement = document.getElementById("image")
+			const thumbnailContainer =
+				document.getElementById("thumbnailContainer")
+			var timer
+
+			const changeImage = (index) => {
+				currentIndex = index
+				imageElement.src = images[currentIndex]
+				resetTimer()
+			}
+
+			const previousImage = () => {
+				currentIndex =
+					currentIndex === 0 ? images.length - 1 : currentIndex - 1
+				changeImage(currentIndex)
+			}
+
+			const nextImage = () => {
+				currentIndex =
+					currentIndex === images.length - 1 ? 0 : currentIndex + 1
+				changeImage(currentIndex)
+			}
+
+			const resetTimer = () => {
+				clearInterval(timer)
+				timer = setInterval(nextImage, 4000) // Cambia la imagen cada 4 segundos
+			}
+
+			resetTimer()
+		</script>
+	</body>
+</html>
