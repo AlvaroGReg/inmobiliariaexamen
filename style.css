@@ -5,6 +5,7 @@ p{
 body{
     background-color: rgb(216, 254, 255);
 }
+
 header {
 	display: flex;
 	flex-direction: column;
@@ -72,6 +73,7 @@ nav button:hover {
 }
 .image-container{
     border: solid 1px black;
+			max-width: 100%;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -79,6 +81,7 @@ nav button:hover {
 }
 
 .image-container img{
+			max-width: 100%;
     width: 400px;
     height: 400px;
 }
