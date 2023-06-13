@@ -86,6 +86,10 @@ nav button:hover {
     height: 400px;
 }
 
+.image-container p{
+		margin-left: 10px;
+}
+
 /* Estilos de la imagen ampliada a pantalla completa */
 .fullscreen-container {
     position: fixed;
