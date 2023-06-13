@@ -10,25 +10,25 @@
     <h1>Formulario de Alta de Clientes</h1>
 
     <form action="mailto:alta.cliente@inmobiliariamyl.es" method="post" enctype="text/plain" onsubmit="return checkValues()">
-    <label for="nombre">Nombre y Apellidos:</label>
+    <label for="nombre">Nombre y Apellidos*:</label>
     <input type="text" id="nombre" name="nombre" required><br><br>
 
-    <label for="dni">DNI:</label>
+    <label for="dni">DNI*:</label>
     <input type="text" id="dni" name="dni" required><br><br>
 
-    <label for="fecha">Fecha de Nacimiento:</label>
+    <label for="fecha">Fecha de Nacimiento*:</label>
     <input type="date" id="fecha" name="fecha" required><br><br>
 
-    <label for="domicilio">Domicilio:</label>
+    <label for="domicilio">Domicilio*:</label>
     <input type="text" id="domicilio" maxlength="45" name="domicilio" required><br><br>
 
-    <label for="poblacion">Población:</label>
+    <label for="poblacion">Población*:</label>
     <input type="text" id="poblacion" maxlength="45" name="poblacion" required><br><br>
 
-    <label for="provincia">Provincia:</label>
+    <label for="provincia">Provincia*:</label>
     <input type="text" id="provincia" maxlength="20" name="provincia" required><br><br>
 
-    <label for="email">Email:</label>
+    <label for="email">Email*:</label>
     <input type="email" id="email" name="email" required><br><br>
 
     <label for="observaciones">Observaciones:</label><br>
@@ -37,5 +37,7 @@
     <input type="submit" value="Enviar">
     <input type="reset" value="Limpiar">
   </form>
+
+  <p>*Campos obligatorios</p>
 </body>
 </html>

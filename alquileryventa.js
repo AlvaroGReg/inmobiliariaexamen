@@ -62,41 +62,57 @@ var pisos = [
 ]
 
 function chargeGallery() {
-
-	// Obtener la referencia al elemento contenedor de la galería
-	var galleryContainer = document.getElementById("gallery")
-
-	// Generar la galería
+	var galleryContainer = document.getElementById("gallery");
+  
 	for (var i = 0; i < pisos.length; i++) {
-		var piso = pisos[i]
+	  var piso = pisos[i];
+	  var imageContainer = document.createElement("div");
+	  imageContainer.className = "image-container";
+  
+	  var img = document.createElement("img");
+	  img.src = piso.src;
+	  img.alt = "Piso " + (i + 1);
+  
+	  var title = document.createElement("p");
+	  title.className = "image-title";
+	  title.textContent = piso.title;
+  
+	  var alquiler = document.createElement("p");
+	  var venta = document.createElement("p");
+	  alquiler.innerHTML = "Alquiler: " + piso.alquiler;
+	  venta.innerHTML = "Venta: " + piso.venta;
+  
+	  imageContainer.appendChild(img);
+	  imageContainer.appendChild(title);
+	  imageContainer.appendChild(alquiler);
+	  imageContainer.appendChild(venta);
+  
+	  // Agregar el evento click al image-container
+	  img.addEventListener("click", function (event) {
 
-		// Crear el contenedor de la imagen
-		var imageContainer = document.createElement("div")
-		imageContainer.className = "image-container"
-
-		// Crear la etiqueta de imagen
-		var img = document.createElement("img")
-		img.src = piso.src
-		img.alt = "Piso " + (i + 1)
-
-		// Crear el título de la imagen
-		var title = document.createElement("p")
-		title.className = "image-title"
-		title.textContent = piso.title
-
-		// Precios del piso
-		var alquiler = document.createElement("p")
-		var venta = document.createElement("p")
-		alquiler.innerHTML = "Alquiler: " + piso.alquiler
-		venta.innerHTML = "Venta: " + piso.venta
-
-		// Agregar la imagen y el título al contenedor
-		imageContainer.appendChild(img)
-		imageContainer.appendChild(title)
-		imageContainer.appendChild(alquiler)
-		imageContainer.appendChild(venta)
-
-		// Agregar el contenedor a la galería
-		galleryContainer.appendChild(imageContainer)
+		var fullscreenContainer = document.createElement("div");
+		fullscreenContainer.className = "fullscreen-container";
+  
+		var fullscreenImage = document.createElement("img");
+		fullscreenImage.src = event.target.src;
+		fullscreenImage.alt = event.target.alt;
+  
+		var closeButton = document.createElement("button");
+		closeButton.className = "close-button";
+		closeButton.innerHTML = "X";
+		closeButton.addEventListener("click", function () {
+		  fullscreenContainer.remove();
+		});
+  
+		fullscreenContainer.appendChild(fullscreenImage);
+		fullscreenContainer.appendChild(closeButton);
+		fullscreenContainer.appendChild(alquiler);
+		fullscreenContainer.appendChild(venta);
+  
+		document.body.appendChild(fullscreenContainer);
+	  });
+  
+	  galleryContainer.appendChild(imageContainer);
 	}
-}
+  }
+  
