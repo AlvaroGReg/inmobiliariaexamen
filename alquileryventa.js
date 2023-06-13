@@ -62,57 +62,57 @@ var pisos = [
 ]
 
 function chargeGallery() {
-	var galleryContainer = document.getElementById("gallery");
+	var galleryContainer = document.getElementById("gallery")
   
 	for (var i = 0; i < pisos.length; i++) {
-	  var piso = pisos[i];
-	  var imageContainer = document.createElement("div");
-	  imageContainer.className = "image-container";
+	  var piso = pisos[i]
+	  var imageContainer = document.createElement("div")
+	  imageContainer.className = "image-container"
   
-	  var img = document.createElement("img");
-	  img.src = piso.src;
-	  img.alt = "Piso " + (i + 1);
+	  var img = document.createElement("img")
+	  img.src = piso.src
+	  img.alt = "Piso " + (i + 1)
   
-	  var title = document.createElement("p");
-	  title.className = "image-title";
-	  title.textContent = piso.title;
+	  var title = document.createElement("p")
+	  title.className = "image-title"
+	  title.textContent = piso.title
   
-	  var alquiler = document.createElement("p");
-	  var venta = document.createElement("p");
-	  alquiler.innerHTML = "Alquiler: " + piso.alquiler;
-	  venta.innerHTML = "Venta: " + piso.venta;
+	  var alquiler = document.createElement("p")
+	  var venta = document.createElement("p")
+	  alquiler.innerHTML = "Alquiler: " + piso.alquiler + "€/mes"
+	  venta.innerHTML = "Venta: " + piso.venta + "€"
   
-	  imageContainer.appendChild(img);
-	  imageContainer.appendChild(title);
-	  imageContainer.appendChild(alquiler);
-	  imageContainer.appendChild(venta);
+	  imageContainer.appendChild(img)
+	  imageContainer.appendChild(title)
+	  imageContainer.appendChild(alquiler)
+	  imageContainer.appendChild(venta)
   
 	  // Agregar el evento click al image-container
 	  img.addEventListener("click", function (event) {
 
-		var fullscreenContainer = document.createElement("div");
-		fullscreenContainer.className = "fullscreen-container";
+		var fullscreenContainer = document.createElement("div")
+		fullscreenContainer.className = "fullscreen-container"
   
-		var fullscreenImage = document.createElement("img");
-		fullscreenImage.src = event.target.src;
-		fullscreenImage.alt = event.target.alt;
+		var fullscreenImage = document.createElement("img")
+		fullscreenImage.src = event.target.src
+		fullscreenImage.alt = event.target.alt
   
-		var closeButton = document.createElement("button");
-		closeButton.className = "close-button";
-		closeButton.innerHTML = "X";
+		var closeButton = document.createElement("button")
+		closeButton.className = "close-button"
+		closeButton.innerHTML = "X"
 		closeButton.addEventListener("click", function () {
-		  fullscreenContainer.remove();
+		  fullscreenContainer.remove()
 		});
   
-		fullscreenContainer.appendChild(fullscreenImage);
-		fullscreenContainer.appendChild(closeButton);
-		fullscreenContainer.appendChild(alquiler);
-		fullscreenContainer.appendChild(venta);
+		fullscreenContainer.appendChild(fullscreenImage)
+		fullscreenContainer.appendChild(closeButton)
+		fullscreenContainer.appendChild(alquiler)
+		fullscreenContainer.appendChild(venta)
   
-		document.body.appendChild(fullscreenContainer);
+		document.body.appendChild(fullscreenContainer)
 	  });
   
-	  galleryContainer.appendChild(imageContainer);
+	  galleryContainer.appendChild(imageContainer)
 	}
   }
   
